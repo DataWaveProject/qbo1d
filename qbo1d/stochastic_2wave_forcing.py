@@ -135,11 +135,8 @@ class WaveSpectrum(torch.nn.Module):
         self.As = torch.transpose(torch.vstack([As, -As]), 0, 1)
         self.cs = torch.transpose(torch.vstack([cs, -cs]), 0, 1)
 
-        print(self.As.shape)
-
         # wavenumbers
         self.ks = 1 * 2 * torch.pi / 4e7 * torch.ones(2)
-        print(self.ks.shape)
 
         self.g_func = lambda c, k, u : (utils.NBV * self._alpha /
         (k * ((c - u) ** 2)))
